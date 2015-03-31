@@ -1,0 +1,169 @@
+
+ <%= render :partial=>"daohang"%>
+<!--滚动屏幕 -->
+   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag "chrome.jpg", class:"photo"%>
+      <div class="carousel-caption">
+      <h1>Chrome</h1>
+        <p>Googlechrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。</p>
+        <p><a class="btn btn-lg btn-primary" href="http://www.goole.cn/intl/zn-CN/chrome/browser" role="button" target="_blank">点我下载</a></p>
+      </div>
+    </div>
+
+  <% (2..5) .each do |channel_index|%>
+    <div class="item">
+        <%= image_tag @channel_matter["#{channel_index}"] , class:"photo"%>
+        <div class="carousel-caption">
+        <h1><%= @channel_name["#{channel_index}"] %></h1>
+          <p><%= @channel_details["#{channel_index}"] %></p>
+          <p><a class="btn btn-lg btn-primary" href="<%= @channel_button["#{channel_index}"] %>" target="_blank"  role="button">点我下载</a></p>
+        </div>
+      </div>
+    <% end %>
+</div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">上一页</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">下一页</span>
+  </a>
+</div>
+
+<!-- 删格布局 -->
+<div class="container  summary-container">
+  <div class="row" id="summary-container">
+  <% (1..3) .each do |channel_index|%>
+       <div class="col-md-4">
+         <%=image_tag "cooperation_channel_#{channel_index}.png"%>
+         <h2><%= @channel_name["#{channel_index}"] %></h2>
+         <p><%= @channel_details["#{channel_index}"] %></p>
+         <p><a class="btn btn-default" href="#" role="button">点我下载</a></p>
+      </div>
+  <% end %>     
+  </div>
+  <hr class="divider">
+</div>
+
+
+<!-- 定位菜单 -->
+<div class="container">
+   <div role="tabpanel">
+    <ul class="nav nav-tabs" role="tablist" id="tab-list">
+    <li role="presentation" class="active"><a href="#tab-chrome"  aria-controls="tab-chrome" role="tab" data-toggle="tab">Chrome</a></li>
+    <li role="presentation"><a href="#tab-firefox" aria-controls="tab-firefox"  role="tab" data-toggle="tab">Firefox</a></li>
+    <li role="presentation"><a href="#tab-safari" aria-controls="tab-safari"  role="tab" data-toggle="tab">Safari</a></li>
+    <li role="presentation"><a href="#tab-opera" aria-controls="tab-opera"  role="tab" data-toggle="tab">Opera</a></li>
+    <li role="presentation"><a href="#tab-ie" aria-controls="tab-ie"  role="tab" data-toggle="tab">IE</a></li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="tab-chrome">
+    <div class="row feature">
+      <div class="col-md-7">
+        <h2 class="feature-heading">Google Chrome <span class="text-muted">使用最广的浏览器</span></h2>
+        <p class="lead">Google Chrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。该浏览器是基于其他开源软件所撰写，包括WebKit，目标是提升稳定性、速度和安全性，并创造出简单且有效率的使用者界面。</p>
+      </div>
+      <div class="col-md-5">
+        <%= image_tag "chrome3.png", class:"feature-image img-responsive"%>
+      </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="tab-firefox">
+    <div class="row feature">
+      <div class="col-md-5">
+     <%= image_tag "firefox3.png", class:"feature-image img-responsive"%>
+     </div>
+     <div class="col-md-7">
+        <h2 class="feature-heading">Mozilla Firefox <span class="text-muted"> 美丽的狐狸</span></h2>
+        <p class="lead">Mozilla Firefox，中文名通常称为“火狐”或“火狐浏览器”（正式缩写为 Fx，非正式缩写为FF），是一个开源网页浏览器，使用Gecko引擎，支持多种操作系统，如Windows、Mac和Linux。</p>
+      </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="tab-safari">
+    <div class="row feature">
+      <div class="col-md-7">
+        <h2 class="feature-heading">Safari <span class="text-muted"> Mac用户首选</span></h2>
+        <p class="lead">Safari,苹果计算机的最新操作系统Mac OS X中新的浏览器，用来取代之前的Internet ExplorerforMac。Safari使用了KDE的KHTML作为浏览器的计算核心。 该浏览器已支持Windows平台，但是与运行在Mac OS X上的safari相比，有些功能出现丢失。Safari也是iPhone手机、iPodTouch、iPad平板电脑中iOS指定默认浏览器。</p>
+      </div>
+      <div class="col-md-5">
+        <%= image_tag "safari3.png", class:"feature-image img-responsive"%>
+      </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="tab-opera">
+    <div class="row feature">
+     <div class="col-md-5">
+     <%= image_tag "opera2.jpg", class:"feature-image img-responsive"%>
+     </div>
+     <div class="col-md-7">
+        <h2 class="feature-heading">Opera <span class="text-muted"> 小众但易用</span></h2>
+        <p class="lead">Opera浏览器，是一款挪威Opera Software ASA公司制作的支持多页面标签式浏览的网络浏览器。是跨平台浏览器可以在Windows、Mac和Linux三个操作系统平台上运行。</p>
+      </div>
+      </div>
+    </div>
+
+  <div role="tabpanel" class="tab-pane" id="tab-ie">
+    <div class="row feature">
+       <div class="col-md-7">
+        <h2 class="feature-heading">IE <span class="text-muted"> 你懂得</span></h2>
+        <p class="lead">Internet Explorer，原称Microsoft Internet Explorer(6版本以前)和Windows Internet Explorer(7，8，9，10，11版本)，简称IE(以下如无特殊说明，所有涉及Microsoft Internet Explorer或Windows Internet Explorer的名称均用简称IE表示)。在IE7以前中文直译为“网络探路者”，但在IE7以后便直接俗称"IE浏览器"。是美国微软公司推出的一款网页浏览器。</p>
+      </div>
+      <div class="col-md-5">
+        <%= image_tag "ie2.jpg", class:"feature-image img-responsive"%>
+      </div>
+      </div>
+  </div>
+
+  </div>
+  </div>
+  <hr class="divider">
+</div>
+
+<div class="modal fade" id="about">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">关于</h4>
+      </div>
+      <div class="modal-body">
+        <p>浏览器是指可以显示网页服务器或者文件系统的HTML文件（标准通用标记语言的一个应用）内容，并让用户与这些文件交互的一种软件。</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">了解了</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script >
+    $(document) .ready(function(){
+            $("#bs-example-navbar-collapse-1  .dropdown-menu a") .click(function(){
+                    var href = $(this) .attr("href");
+                    $("#tab-list  a[href='" + href +"']") .tab("show");
+            });
+    });
+    </script>
+
